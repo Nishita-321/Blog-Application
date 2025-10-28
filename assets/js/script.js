@@ -9,6 +9,7 @@ function Register(admin) {
     password: password.value.trim(),
     isAdmin: admin,
     active: true,
+    createdAt: new Date()
   };
   if (!obj.name || !obj.username || !obj.password) {
     alert("Fill all details!");
