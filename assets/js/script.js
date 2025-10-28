@@ -30,7 +30,7 @@ function Register(admin) {
   localStorage.setItem("allUsers", JSON.stringify(data));
 
   alert("User Registerd!!");
-  window.location.href = "../../auth/login.html";
+  window.location.href = "login.html";
 }
 
 function Login() {
