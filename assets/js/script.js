@@ -45,7 +45,11 @@ function Login() {
         alert("Please Contact Admin, You Are Blocked!");
         return;
       } else {
+
+        localStorage.setItem("currentUser",JSON.stringify(data[i]));
+
         alert("Login Success");
+        window.location.href = "index.html"
         return;
       }
     }
@@ -83,4 +87,25 @@ function ContactUs() {
   localStorage.setItem("allContacts", JSON.stringify(data));
 
   alert("We will contact you back in a while...");
+}
+
+function loadNavOptions(){
+
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  if(currentUser){
+    if(currentUser.isAdmin){
+          document.getElementById("nav-options").innerHTML = `<a href="admin/AdminDashboard.html">Admin Panel</a> ${currentUser.username}`
+    }
+    else{
+      
+      document.getElementById("nav-options").innerHTML = `${currentUser.username}`
+    
+    }
+
+
+  }
+  else{
+    document.getElementById("nav-options").innerHTML = `<a href="login.html">Login/SignUp</a>` 
+  }
 }
