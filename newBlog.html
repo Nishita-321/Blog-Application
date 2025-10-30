@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
     <div class="container">
         <div>
-        <label for="title">Title</label>
-        <input type="text" class="form-input" id="title">
-        
-        <br><br>
+            <label for="pic">Picture</label>
+            <input type="text" class="form-input" id="pic" />
 
-        <label for="tags">Tags</label>
-        <input type="text" class="form-input" id="tags">
+            <br /><br />
 
-        <br><br>
-        
-        <label for="para">Paragraph</label>
-        <textarea class="form-input" id="para"> </textarea>
+            <label for="title">Title</label>
+            <input type="text" class="form-input" id="title" />
 
-        <br><br>
+            <br /><br />
 
-        <input id="submitBtn" type="button" value="submit" onclick="saveBlog()">
+            <label for="tags">Tags</label>
+            <input type="text" class="form-input" id="tags" />
+
+            <br /><br />
+
+            <label for="para">Paragraph</label>
+            <textarea class="form-input" id="para"> </textarea>
+
+            <br /><br />
+
+            <input id="submitBtn" type="button" value="submit" onclick="saveBlog()" />
         </div>
     </div>
 </body>
 
 <script src="assets/js/blogs.js"></script>
+
 </html>
