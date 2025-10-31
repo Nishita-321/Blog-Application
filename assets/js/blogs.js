@@ -15,6 +15,7 @@ function saveBlog() {
      
  
   let obj = {
+    id : new Date(),
     pic : pic.value,
     title: title.value,
     tags: tags.value,
@@ -44,6 +45,8 @@ function loadMyBlogs() {
     return;
   }
 
+  document.getElementById("myBlogContainer").innerHTML = "";
+
   for(let i = 0; i < allBlog.length; i++){
     if(allBlog[i].user == currentUser.username){
       document.getElementById("myBlogContainer").innerHTML += `
@@ -55,10 +58,28 @@ function loadMyBlogs() {
                     <p class="MyBlogscardLikes">Likes: ${allBlog[i].likes.length}</p>
                 </div>
                 <div class="MyBlogscardBtns">
-                    <button>Delete</button>
+                    <button onclick="DeleteBlog('${allBlog[i].id}')">Delete</button>
                     <button>Edit</button>
                 </div>
             </div>`
     }
   }
+}
+
+function DeleteBlog(id) {
+
+  let tempAry = [];
+
+  for(let i = 0; i < allBlog.length; i++){
+    if(id != allBlog[i].id) {
+      tempAry.push(allBlog[i]);
+    }
+  }
+
+  allBlog = tempAry;
+
+  localStorage.setItem("allBlogs",JSON.stringify(tempAry));
+
+  loadMyBlogs();
+
 }

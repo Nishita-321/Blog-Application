@@ -6,24 +6,24 @@
     <title>WriteHub - The Best Blog Application</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body onload="loadNavOptions()">
+<body onload="loadNavOptions();loadAllBlogs()">
+  <div id="navContainer">
    
-  <div>
-   <div>
+   <div id="navlogo">
       WriteHub
    </div>
-   <div>
-      <a href="#">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
-      <div id="nav-options">
+   <div id="nav-items">
+      <a href="#" class="homepage-options">Home</a>
+      <a href="#" class="homepage-options">About Us</a>
+      <a href="#" class="homepage-options">Contact Us</a>
+
+      <div id="nav-options" class="homepage-options">
 
       </div>
    </div>
   </div>
-
-  
-
+  <div id="allBlogs">
+  </div>
 </body>
 
 <script src="assets/js/script.js"></script>

@@ -56,6 +56,7 @@ function Login() {
   }
   alert("Invalid Credentials!!");
 }
+
 function ContactUs() {
   let namee = document.getElementById("name");
   let email = document.getElementById("email");
@@ -95,17 +96,86 @@ function loadNavOptions(){
 
   if(currentUser){
     if(currentUser.isAdmin){
-          document.getElementById("nav-options").innerHTML = `<a href="admin/AdminDashboard.html">Admin Panel</a> ${currentUser.username}`
+          document.getElementById("nav-options").innerHTML = `<a href="admin/AdminDashboard.html" class="homepage-options">Admin Panel</a> ${currentUser.username} <p onclick="localStorage.removeItem('currentUser');loadNavOptions()" class="homepage-options">Logout</p>`
     }
     else{
       
-      document.getElementById("nav-options").innerHTML = `${currentUser.username}`
+      document.getElementById("nav-options").innerHTML = `${currentUser.username} <p onclick="localStorage.removeItem('currentUser');loadNavOptions()" class="homepage-options">Logout</p>`
     
     }
-
-
+    
   }
   else{
     document.getElementById("nav-options").innerHTML = `<a href="login.html">Login/SignUp</a>` 
   }
+}
+
+function loadAllBlogs() {
+
+  let allBlogs = JSON.parse(localStorage.getItem("allBlogs"));
+
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  document.getElementById("allBlogs").innerHTML = "";
+  
+  for(let i = 0; i < allBlogs.length; i++){
+    document.getElementById("allBlogs").innerHTML +=  `
+    <div class="MyBlogscard">
+                <img class="MyBlogscardImg" src="${allBlogs[i].pic}">
+                <div>
+                    <p class="MyBlogscardTitle">${allBlogs[i].title}</p>
+                    <p class="MyBlogscardTags">Tags: ${allBlogs[i].tags}</p>
+                    <p class="MyBlogscardAuthor">Author: ${allBlogs[i].user}</p> 
+                    <p class="MyBlogscardLikes">Likes: ${allBlogs[i].likes.length}</p>
+                </div>
+                <div>
+                <button id="LikeBtn" onclick="Like('${allBlogs[i].id}')">
+                  ${allBlogs[i].likes.includes(currentUser?.username || "") ? 'DisLike' : 'Like'}
+                </button>
+                </div>
+            </div>`
+  }
+}
+
+function Like(id)
+{
+
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  let allBlogs = JSON.parse(localStorage.getItem("allBlogs"));
+
+  if(!currentUser)
+  {
+    alert("Please Login to Like!");
+    window.location.href = "login.html";
+    return;
+  }
+
+  for(let i=0; i<allBlogs.length; i++)
+  {
+
+    if(allBlogs[i].id == id)
+    {
+
+      if(allBlogs[i].likes.includes(currentUser.username))
+      {
+
+        let tempAry = allBlogs[i].likes.filter(L => L!=currentUser.username)
+
+        allBlogs[i].likes = tempAry;
+
+      }
+      else
+      {
+        allBlogs[i].likes.push(currentUser.username);
+      }
+
+    }
+
+  }
+
+  localStorage.setItem("allBlogs", JSON.stringify(allBlogs))
+
+  loadAllBlogs();
+
 }

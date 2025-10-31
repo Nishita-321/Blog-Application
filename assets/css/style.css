@@ -122,45 +122,70 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+
 }
 
-.MyBlogscard{
-    width: 200px;
-    height: 320px;
+#allBlogs{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: calc(10px);
+
+}
+
+.myBlogContainer{
+    width: 300px;
+    margin: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 10px;
+    background-color: #f9f9f9;
+
+
 }
+
 
 .MyBlogscardImg {
     width: 100%;
     height: 180px;
     border-radius: 8px;
+    object-fit: cover;
+
 }
 
 .MyBlogscardTitle {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0 5px 0;
+
 }
 
 .MyBlogscardTags {
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
+
 }
 
 .MyBlogscardLikes {
     font-size: 14px;
     color: #333;
     margin-bottom: 10px;
+
+}
+
+.MyBlogscardAuthor {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+
 }
 
 .MyBlogscardBtns {
     display: flex;
     justify-content: space-evenly;
+
 }
 
 .MyBlogscardBtns button {
@@ -171,4 +196,68 @@
     background-color: #52b457; /* Green */
     color: white;
     font-size: 14px;
+
+}
+
+#navContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+
+
+}
+
+#navlogo{
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+#nav-items{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    
+}
+
+.homepage-options{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 8px 12px;
+    cursor: pointer;
+
+}
+
+#LikeBtn{
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* transition: background-color 0.3s ease; */
+
+
+}
+.MyBlogscard {
+    width: 210px;
+    height: 320px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
 }
