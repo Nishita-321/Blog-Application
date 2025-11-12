@@ -59,7 +59,7 @@ function loadMyBlogs() {
                 </div>
                 <div class="MyBlogscardBtns">
                     <button onclick="DeleteBlog('${allBlog[i].id}')">Delete</button>
-                    <button>Edit</button>
+                    <button onclick="EditBlog('${allBlog[i].id}')">Edit</button>
                 </div>
             </div>`
     }
@@ -83,3 +83,5 @@ function DeleteBlog(id) {
   loadMyBlogs();
 
 }
+
+function EditBlog(){}

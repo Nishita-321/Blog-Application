@@ -224,12 +224,24 @@
     
 }
 
+#nav-options{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
 .homepage-options{
     color: white;
     font-size: 18px;
     text-decoration: none;
     padding: 8px 12px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
 
 }
 
