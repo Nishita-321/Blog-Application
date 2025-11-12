@@ -133,7 +133,7 @@ function loadAllBlogs() {
                 <div>
 
                 <button id="LikeBtn" onclick="Like('${allBlogs[i].id}')">
-                  ${allBlogs[i].likes.includes(currentUser?.username || "")? "DisLike": "Like"}
+                  ${allBlogs[i].likes.includes(currentUser?.username || "")? '<i class="fa-solid fa-heart like-heart"></i>': '<i class="fa-regular fa-heart"></i>'}
                 </button>
 
                 </div>
